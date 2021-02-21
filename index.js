@@ -3,11 +3,18 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-// Inputs: (Questions section(User's name, User's GitHub username, Users's email address)), Project title, Project Description, User Story, Challenges, Plans for Future Development,
-// Resources, Contributors, Installation Instructions, Usage Instructions,
-// Confirm: State of deployment (production/deployed), 
-// Table of Contents - generated from the information provided by the user,    
+// Inputs: (Questions section(
+/*User's name, 
+User's GitHub username, 
+Users's email address)), 
+Project title, 
+Project Description, 
+Contributors, 
+Installation Instructions, 
+Usage Instructions,
+// Table of Contents - generated from the information provided by the user
 // Checkbox: License (user selects the relevant license)
+*/
 const questions = () =>
     inquirer.prompt([
         {
@@ -17,33 +24,56 @@ const questions = () =>
         },
         {
             type: 'input',
-            name: 'location',
-            message: 'Where are you from?',
+            name: 'username',
+            message: 'What is your GitHub username?',
         },
         {
             type: 'input',
-            name: 'hobby',
-            message: 'What is your favorite hobby?',
+            name: 'email',
+            message: 'What is your email address?',
         },
         {
             type: 'input',
-            name: 'food',
-            message: 'What is your favorite food?',
+            name: 'title',
+            message: 'What is the title of your project?',
+            default: '',
         },
         {
             type: 'input',
-            name: 'github',
-            message: 'Enter your GitHub Username',
+            name: 'description',
+            message: 'Please describe your project',
+            default: '',
         },
         {
             type: 'input',
-            name: 'linkedin',
-            message: 'Enter your LinkedIn URL.',
+            name: 'contributors',
+            message: 'Please enter the GitHub usernames of this project\'s contributors',
+            default: '',
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'Please enter the installation instructions here',
+            default: '',
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Please enter usage instructions here',
+            default: '',
+        },
+        {
+            type: 'checkbox',
+            name: 'licenses',
+            message: 'Please select the relevant licenses for this project',
+            default: '',
         },
     ]);
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) {
+    fs.writeFileSync(fileName, data);
+}
 
 // TODO: Create a function to initialize app
 function init() { }
