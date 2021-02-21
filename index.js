@@ -3,18 +3,8 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-// Inputs: (Questions section(
-/*User's name, 
-User's GitHub username, 
-Users's email address)), 
-Project title, 
-Project Description, 
-Contributors, 
-Installation Instructions, 
-Usage Instructions,
 // Table of Contents - generated from the information provided by the user
-// Checkbox: License (user selects the relevant license)
-*/
+
 const questions = () =>
     inquirer.prompt([
         {
@@ -62,13 +52,19 @@ const questions = () =>
             message: 'Please enter usage instructions here',
             default: '',
         },
-        {
-            type: 'checkbox',
-            name: 'licenses',
-            message: 'Please select the relevant licenses for this project',
-            default: '',
-        },
+        // {
+        //     type: 'checkbox',
+        //     name: 'licenses',
+        //     message: 'Please select the relevant licenses for this project',
+        //     default: '',
+        // },
     ]);
+
+function generateMarkdown(data) {
+    return `# ${data.title}
+      
+      `;
+}
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
