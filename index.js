@@ -69,6 +69,26 @@ const generateMarkdown = (answers) =>
 ###Contributors: ${answers.contributors}
 ###If you have any questions, please contact ${answers.name} at: ${answers.email}`
 
+const init = () => {
+    questions().then((answers) => {
+        try {
+            const md = generateMarkdown(answers);
+            fs.writeFileSync('readme.md', md);
+            console.log('Successfully wrote to readme.md');
+        } catch (error) {
+            console.log(error);
+        }
+    });
+};
+
+init();
+
+
+
+
+
+// From the homework files:
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFileSync(fileName, data);
