@@ -63,7 +63,7 @@ const questions = () =>
 const generateMarkdown = (answers) =>
     `# ${answers.title}
 
-## by: ${answers.username}
+#### by: ${answers.username}
 
 ### **Project Description:**  
 ${answers.description}
