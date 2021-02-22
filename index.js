@@ -3,8 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-// Table of Contents - generated from the information provided by the user
-
+// Table of Contents
 const questions = () =>
     inquirer.prompt([
         {
@@ -46,7 +45,6 @@ const questions = () =>
             type: 'input',
             name: 'contributors',
             message: 'Please enter the GitHub usernames of this project\'s contributors',
-            default: 'This project has no other contributors.',
         },
         {
             type: 'checkbox',
@@ -81,7 +79,7 @@ const generateMarkdown = (answers) =>
 
 #### by: ${answers.username}
 
-![APM](https://img.shields.io/apm/l/MIT?logo=MIT)
+![${answers.choices}](https://img.shields.io/apm/l/${answers.choices}?logo=${answers.choices})
 
 ### **Project Description:**  
 ${answers.description}
@@ -92,7 +90,7 @@ ${answers.installation}
 ### **Usage:**
 ${answers.usage}
 
-### **Licenses:**
+### **License:**
 ${answers.licenses}
 
 ### **Contributors:**  
@@ -116,26 +114,7 @@ const init = () => {
 //     if
 //  }
 
-
 init();
-
-
-
-
-
-// // From the homework files:
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-//     fs.writeFileSync(fileName, data);
-// }
-
-// // TODO: Create a function to initialize app
-// function init() { }
-
-// // Function call to initialize app
-// init();
-
 
 // // (Student Note): Included in a 'generateMarkdown.js" file:
 
