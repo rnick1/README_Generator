@@ -54,13 +54,16 @@ const questions = () =>
             message: 'Please select the relevant licenses for this project',
             choices: [
                 {
-                    name: 'I am not sure.',
+                    name: 'MIT',
                 },
                 {
-                    name: 'Apple',
+                    name: 'Apache',
                 },
                 {
-                    name: 'Microsoft',
+                    name: 'GPL',
+                },
+                {
+                    name: 'None',
                 },
             ],
             validate: function (answer) {
