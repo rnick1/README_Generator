@@ -60,11 +60,14 @@ const questions = () =>
         // },
     ]);
 
-function generateMarkdown(data) {
-    return `# ${data.title}
-      
-      `;
-}
+const generateMarkdown = (answers) =>
+    `# ${answers.title}
+## by: ${answers.username}
+### Project Description: ${answers.description}
+###Installation: ${answers.installation}
+###Usage: ${answers.usage}
+###Contributors: ${answers.contributors}
+###If you have any questions, please contact ${answers.name} at: ${answers.email}`
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
