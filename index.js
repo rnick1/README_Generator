@@ -81,6 +81,8 @@ const generateMarkdown = (answers) =>
 
 #### by: ${answers.username}
 
+![APM](https://img.shields.io/apm/l/MIT?logo=MIT)
+
 ### **Project Description:**  
 ${answers.description}
 
@@ -109,6 +111,11 @@ const init = () => {
         }
     });
 };
+
+// function renderLicenseBadge(license) {
+//     if
+//  }
+
 
 init();
 
