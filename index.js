@@ -62,11 +62,21 @@ const questions = () =>
 
 const generateMarkdown = (answers) =>
     `# ${answers.title}
+
 ## by: ${answers.username}
-### Project Description: ${answers.description}
-### Installation: ${answers.installation}
-### Usage: ${answers.usage}
-### Contributors: ${answers.contributors}
+
+### **Project Description:**  
+${answers.description}
+
+### **Installation:**  
+${answers.installation}
+
+### **Usage:**
+${answers.usage}
+
+### **Contributors:**  
+${answers.contributors}
+
 ### If you have any questions, please contact ${answers.name} at: ${answers.email}`
 
 const init = () => {
