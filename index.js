@@ -26,38 +26,51 @@ const questions = () =>
             type: 'input',
             name: 'title',
             message: 'What is the title of your project?',
-            default: '',
         },
         {
             type: 'input',
             name: 'description',
             message: 'Please describe your project',
-            default: '',
         },
         {
             type: 'input',
             name: 'installation',
             message: 'Please enter the installation instructions here',
-            default: '',
         },
         {
             type: 'input',
             name: 'usage',
             message: 'Please enter usage instructions here',
-            default: '',
         },
         {
             type: 'input',
             name: 'contributors',
             message: 'Please enter the GitHub usernames of this project\'s contributors',
-            default: '',
+            default: 'This project has no other contributors.',
         },
-        // {
-        //     type: 'checkbox',
-        //     name: 'licenses',
-        //     message: 'Please select the relevant licenses for this project',
-        //     default: '',
-        // },
+        {
+            type: 'checkbox',
+            name: 'licenses',
+            message: 'Please select the relevant licenses for this project',
+            choices: [
+                {
+                    name: 'I am not sure.',
+                },
+                {
+                    name: 'Apple',
+                },
+                {
+                    name: 'Microsoft',
+                },
+            ],
+            validate: function (answer) {
+                if (answer.length < 1) {
+                    return 'Please make at least one selection.';
+                }
+                return true;
+            },
+        },
+
     ]);
 
 const generateMarkdown = (answers) =>
@@ -73,6 +86,9 @@ ${answers.installation}
 
 ### **Usage:**
 ${answers.usage}
+
+### **Licenses:**
+${answers.licenses}
 
 ### **Contributors:**  
 ${answers.contributors}
