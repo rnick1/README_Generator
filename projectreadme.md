@@ -26,6 +26,4 @@ None
 ### **Contributors:**  
 n/a
 
-### **Instructional video:**
-
 ### If you have any questions, please contact Nick at: rnick0260@gmail.com
