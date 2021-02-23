@@ -1,9 +1,8 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// TODO: Create an array of questions for user input
-// Table of Contents
+// Created  array of questions for user input
 const questions = () =>
     inquirer.prompt([
         {
@@ -119,7 +118,6 @@ const questions = () =>
                 return true;
             },
         },
-
     ]);
 
 const generateMarkdown = (answers) => {
@@ -130,7 +128,6 @@ const generateMarkdown = (answers) => {
 [![Licenses](https://img.shields.io/badge/License-${answers.licenses}-blue.svg)](https://opensource.org/licenses/${answers.licenses})
 
 ### **Table of Contents:**
-
 - [Project Description](#project-description)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -153,7 +150,6 @@ ${answers.licenses}
 ${answers.contributors}
 
 ### If you have any questions, please contact ${answers.name} at: ${answers.email}`
-
 }
 
 const init = () => {
