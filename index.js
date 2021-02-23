@@ -33,7 +33,7 @@ const questions = () =>
             name: 'email',
             message: 'What is your email address?',
             validate: function (text) {
-                if (text.length < 6) {
+                if (text.length < 0) {
                     return 'Please enter your email address, otherwise type n/a.';
                 }
                 return true;
