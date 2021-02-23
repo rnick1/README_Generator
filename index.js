@@ -10,41 +10,89 @@ const questions = () =>
             type: 'input',
             name: 'name',
             message: 'What is your name?',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please enter your name.';
+                }
+                return true;
+            },
         },
         {
             type: 'input',
             name: 'username',
             message: 'What is your GitHub username?',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please enter your GitHub username.';
+                }
+                return true;
+            },
         },
         {
             type: 'input',
             name: 'email',
             message: 'What is your email address?',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please enter your email address, otherwise type n/a.';
+                }
+                return true;
+            },
         },
         {
             type: 'input',
             name: 'title',
             message: 'What is the title of your project?',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please enter your project\'s title.';
+                }
+                return true;
+            },
         },
         {
             type: 'input',
             name: 'description',
             message: 'Please describe your project',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please describe your project.';
+                }
+                return true;
+            },
         },
         {
             type: 'input',
             name: 'installation',
             message: 'Please enter the installation instructions here',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please enter the installation instructions.';
+                }
+                return true;
+            },
         },
         {
             type: 'input',
             name: 'usage',
             message: 'Please enter usage instructions here',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please enter the usage instructions.';
+                }
+                return true;
+            },
         },
         {
             type: 'input',
             name: 'contributors',
             message: 'Please enter the GitHub usernames of this project\'s contributors',
+            validate: function (text) {
+                if (text.length < 0) {
+                    return 'Please list your project\'s contributors separated by a commas, otherwise type n/a.';
+                }
+                return true;
+            },
         },
         {
             type: 'checkbox',
