@@ -127,7 +127,8 @@ const generateMarkdown = (answers) =>
 
 #### by: ${answers.username}
 
-![${answers.choices}](https://img.shields.io/apm/l/${answers.choices}?logo=${answers.choices})
+[![License](https://img.shields.io/badge/License-${answers.choices}%202.0-blue.svg)](https://opensource.org/licenses/${answers.choices}-2.0)
+
 
 ### **Table of Contents:**
 
