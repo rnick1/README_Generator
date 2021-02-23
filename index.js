@@ -156,7 +156,7 @@ const init = () => {
     questions().then((answers) => {
         try {
             const md = generateMarkdown(answers);
-            fs.writeFileSync('readme.md', md);
+            fs.writeFileSync('newReadme.md', md);
             console.log('Successfully wrote to readme.md');
         } catch (error) {
             console.log(error);
