@@ -33,7 +33,7 @@ const questions = () =>
             name: 'email',
             message: 'What is your email address?',
             validate: function (text) {
-                if (text.length < 5) {
+                if (text.length < 6) {
                     return 'Please enter your email address, otherwise type n/a.';
                 }
                 return true;
@@ -55,7 +55,7 @@ const questions = () =>
             name: 'description',
             message: 'Please describe your project',
             validate: function (text) {
-                if (text.length < 2) {
+                if (text.length < 3) {
                     return 'Please describe your project.';
                 }
                 return true;
@@ -66,7 +66,7 @@ const questions = () =>
             name: 'installation',
             message: 'Please enter the installation instructions here',
             validate: function (text) {
-                if (text.length < 2) {
+                if (text.length < 3) {
                     return 'Please enter the installation instructions.';
                 }
                 return true;
@@ -77,7 +77,7 @@ const questions = () =>
             name: 'usage',
             message: 'Please enter usage instructions here',
             validate: function (text) {
-                if (text.length < 2) {
+                if (text.length < 3) {
                     return 'Please enter the usage instructions.';
                 }
                 return true;
@@ -128,6 +128,10 @@ const generateMarkdown = (answers) =>
 #### by: ${answers.username}
 
 ![${answers.choices}](https://img.shields.io/apm/l/${answers.choices}?logo=${answers.choices})
+
+### **Table of Contents:**
+
+
 
 ### **Project Description:**  
 ${answers.description}
