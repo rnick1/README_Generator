@@ -11,7 +11,7 @@ const questions = () =>
             name: 'name',
             message: 'What is your name?',
             validate: function (text) {
-                if (text.length < 3) {
+                if (text.length == 0) {
                     return 'Please enter your name.';
                 }
                 return true;
@@ -22,7 +22,7 @@ const questions = () =>
             name: 'username',
             message: 'What is your GitHub username?',
             validate: function (text) {
-                if (text.length < 6) {
+                if (text.length == 0) {
                     return 'Please enter your GitHub username.';
                 }
                 return true;
@@ -33,7 +33,7 @@ const questions = () =>
             name: 'email',
             message: 'What is your email address?',
             validate: function (text) {
-                if (text.length < 0) {
+                if (text.length == 0) {
                     return 'Please enter your email address, otherwise type n/a.';
                 }
                 return true;
@@ -44,7 +44,7 @@ const questions = () =>
             name: 'title',
             message: 'What is the title of your project?',
             validate: function (text) {
-                if (text.length < 0) {
+                if (text.length == 0) {
                     return 'Please enter your project\'s title.';
                 }
                 return true;
@@ -55,7 +55,7 @@ const questions = () =>
             name: 'description',
             message: 'Please describe your project',
             validate: function (text) {
-                if (text.length < 3) {
+                if (text.length == 0) {
                     return 'Please describe your project.';
                 }
                 return true;
@@ -66,7 +66,7 @@ const questions = () =>
             name: 'installation',
             message: 'Please enter the installation instructions here',
             validate: function (text) {
-                if (text.length < 3) {
+                if (text.length == 0) {
                     return 'Please enter the installation instructions.';
                 }
                 return true;
@@ -77,7 +77,7 @@ const questions = () =>
             name: 'usage',
             message: 'Please enter usage instructions here',
             validate: function (text) {
-                if (text.length < 3) {
+                if (text.length == 0) {
                     return 'Please enter the usage instructions.';
                 }
                 return true;
@@ -88,14 +88,14 @@ const questions = () =>
             name: 'contributors',
             message: 'Please enter the GitHub usernames of this project\'s contributors',
             validate: function (text) {
-                if (text.length < 0) {
+                if (text.length == 0) {
                     return 'Please list your project\'s contributors separated by a commas, otherwise type n/a.';
                 }
                 return true;
             },
         },
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'licenses',
             message: 'Please select the relevant licenses for this project',
             choices: [
@@ -113,7 +113,7 @@ const questions = () =>
                 },
             ],
             validate: function (answer) {
-                if (answer.length < 1) {
+                if (answer.length == 0) {
                     return 'Please make at least one selection.';
                 }
                 return true;
@@ -122,17 +122,20 @@ const questions = () =>
 
     ]);
 
-const generateMarkdown = (answers) =>
-    `# ${answers.title}
+const generateMarkdown = (answers) => {
+    return `# ${answers.title}
 
 #### by: ${answers.username}
 
-[![License](https://img.shields.io/badge/License-${answers.choices}%202.0-blue.svg)](https://opensource.org/licenses/${answers.choices}-2.0)
-
+[![Licenses](https://img.shields.io/badge/License-${answers.licenses}-blue.svg)](https://opensource.org/licenses/${answers.licenses})
 
 ### **Table of Contents:**
 
-
+- [Project Description](#project-description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributors](#contributors)
 
 ### **Project Description:**  
 ${answers.description}
@@ -151,6 +154,8 @@ ${answers.contributors}
 
 ### If you have any questions, please contact ${answers.name} at: ${answers.email}`
 
+}
+
 const init = () => {
     questions().then((answers) => {
         try {
@@ -163,31 +168,4 @@ const init = () => {
     });
 };
 
-// function renderLicenseBadge(license) {
-//     if
-//  }
-
 init();
-
-// // (Student Note): Included in a 'generateMarkdown.js" file:
-
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-// function renderLicenseBadge(license) { }
-
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) { }
-
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) { }
-
-// // TODO: Create a function to generate markdown for README
-// function generateMarkdown(data) {
-//     return `# ${data.title}
-
-// `;
-// }
-
-// module.exports = generateMarkdown;
